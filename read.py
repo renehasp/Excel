@@ -43,6 +43,8 @@ categories = Reference(sheet,
 # adding data and categories
 barchart.add_data(data, titles_from_data=True)
 barchart.set_categories(categories)
+barchart.height = 15 # default is 7.5
+barchart.width = 20 # default is 15
 sheet.add_chart(barchart, "B12")
 barchart.title = 'Sales by Product line'
 barchart.style = 2
