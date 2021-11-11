@@ -4,6 +4,7 @@ import openpyxl
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 from openpyxl.chart import BarChart, Reference
+from openpyxl.chart.label import DataLabelList
 import string
 
 excel_file = pd.read_excel('sales.xlsx')[['Gender', 'Product line', 'Total']]
@@ -43,8 +44,10 @@ categories = Reference(sheet,
 # adding data and categories
 barchart.add_data(data, titles_from_data=True)
 barchart.set_categories(categories)
-barchart.height = 15 # default is 7.5
-barchart.width = 20 # default is 15
+barchart.height = 10 # default is 7.5
+barchart.width = 25 # default is 15
+barchart.dataLabels = DataLabelList()
+barchart.dataLabels.showVal = True
 sheet.add_chart(barchart, "B12")
 barchart.title = 'Sales by Product line'
 barchart.style = 2
